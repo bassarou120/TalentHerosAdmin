@@ -39,6 +39,19 @@ class CampagneController extends Controller
 
     }
 
+    public function getCampagneById($id)
+    {
+        $campagne = Campagne::find($id);
+
+        if ($campagne) {
+            return response()->json([
+                'campagne' => $campagne
+            ], 200);
+        } else {
+            return response()->json(['message' => 'Campagne not found'], 404);
+        }
+    }
+
 
 
 
