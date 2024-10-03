@@ -18,6 +18,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+use Filament\Support\Enums\MaxWidth;
+
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -26,6 +28,10 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('TALENT HEROES ADMIN')
+            ->brandLogo(asset('images/talent.png'))
+            ->brandLogoHeight('4rem')
+
             ->login()
 
             ->passwordReset()
@@ -34,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->passwordResetRouteSlug('reset')
             ->profile()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => '#ebde8f',
 
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
